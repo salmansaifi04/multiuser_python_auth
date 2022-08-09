@@ -1,0 +1,25 @@
+{% extends 'poll/base.html' %}
+
+{% block body %}
+
+<div class='container my-4'>
+    <h1 class='my4'>Login Here!!!</h1>
+    {% if messages %}
+    {% for i in messages %}
+    <p class="alert alert-success">{{i}}</p>
+    {% endfor %}
+    {% endif %}
+    <form method='post' novalidate>
+        {% csrf_token %}
+        {% for i in form %}
+        <div class='form-group mb-3'>
+        {{i.label_tag}}{{i}}
+        <small class="text-danger">
+        {{i.errors|striptags}}
+        </small>
+        </div>
+        {% endfor %}
+        <input type='submit' value='Submit' class="btn btn-primary">
+    </form>
+</div>
+{% endblock %}

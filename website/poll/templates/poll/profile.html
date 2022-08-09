@@ -1,0 +1,32 @@
+{% extends 'poll/base.html' %}
+
+{% block body %}
+<div class='container my-4'>
+<h1 class='mb-3'>Profile page</h1>
+<h5 class='mb-3'>welcome {{name}}<h5>
+{% if messages %}
+{% for i in messages %}
+<h3>{{i}}</h3>
+{% endfor %}
+{% endif %}
+
+<div class='container p-3 bg-light'>
+{% if user.is_student %}
+{% for i in form %}
+<div class='list-group'>
+    {{i.label_tag}}{{i}}<br>
+    </div>
+{% endfor %}
+
+{% elif user.is_teacher %}
+{% for i in form %}
+<div class='list-group'>
+{{i.label_tag}}{{i}}<br>
+</div>
+{% endfor %}
+{% else %}
+<h1>No data</h1>
+{% endif %}
+</div>
+</div>
+{% endblock %}

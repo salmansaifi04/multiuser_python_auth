@@ -1,0 +1,12 @@
+{% extends 'poll/base.html' %}
+
+{% block body %}
+<div class='container my-4'>
+  <div class="bg-light rounded-3 p-5">      
+  <h2>Sign up for a free account</h2>
+  <p class="lead">Select below the type of account you want to create</p>
+  <a href="{% url 'stureg' %}" class="btn btn-danger btn-lg" role="button">I'm a student</a>
+  <a href="{% url 'teareg' %}" class="btn btn-primary btn-lg" role="button">I'm a teacher</a>
+  </div>
+</div>
+{% endblock %}
